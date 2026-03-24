@@ -437,11 +437,13 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    // Hero reveals fire immediately (avoids LCP render delay)
-    document.querySelectorAll('.hero-reveal').forEach(el => el.classList.add('visible'));
+    // On mobile: hero reveals fire instantly (avoids LCP delay in Lighthouse)
+    // On desktop: let IntersectionObserver handle them for the full animation
+    if (window.innerWidth < 768) {
+      document.querySelectorAll('.hero-reveal').forEach(el => el.classList.add('visible'));
+    }
 
-    // Everything else uses IntersectionObserver
-    document.querySelectorAll('.reveal:not(.hero-reveal), .reveal-children').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal:not(.visible), .reveal-children').forEach(el => observer.observe(el));
 
     // Newsletter feedback
     const subParam = new URLSearchParams(window.location.search).get('sub');
