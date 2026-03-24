@@ -59,14 +59,6 @@
       will-change: transform;
     }
 
-    /* Mailchimp iframe styling */
-    .mc-iframe {
-      border: none;
-      width: 100%;
-      height: 280px;
-      background: transparent;
-      border-radius: 8px;
-    }
 
     /* Subtle grain overlay */
     .grain::after {
@@ -95,7 +87,7 @@
     <div class="absolute inset-0">
       <img src="img/pexels-anna-kester-10376433.jpg" alt="Street dog on mountain rocks"
            class="hero-img w-full h-full object-cover object-center">
-      <div class="absolute inset-0 bg-gradient-to-t from-bark/80 via-bark/30 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-bark/90 via-bark/50 to-bark/20"></div>
     </div>
     <div class="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-28 lg:pb-32">
       <div class="max-w-2xl">
@@ -222,7 +214,7 @@
   <!-- ============ COMING SOON / APP ============ -->
   <section class="bg-bark text-white relative overflow-hidden grain">
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="relative grid md:grid-cols-2 gap-12 items-center">
         <div class="reveal">
           <span class="text-amber-light font-medium tracking-[0.15em] uppercase text-xs">The App</span>
           <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mt-3 mb-6 leading-tight">Coming Soon</h2>
@@ -230,19 +222,16 @@
             An interactive street dog application. Track street dogs, become a volunteer.
             Raise awareness, collect data, get dog-related information.
           </p>
-          <span class="inline-block border border-white/20 text-white/40 font-medium px-8 py-4 rounded-full cursor-default">
-            Coming Soon
-          </span>
         </div>
-        <div class="flex justify-center reveal" style="transition-delay:0.15s">
-          <img src="img/phone2.png" alt="App screenshot on phone" class="max-w-xs md:max-w-sm drop-shadow-2xl" loading="lazy">
+        <div class="reveal md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 flex justify-center md:justify-end" style="transition-delay:0.15s">
+          <img src="img/phone2.png" alt="App screenshot on phone" class="max-w-sm md:max-w-md lg:max-w-lg drop-shadow-2xl" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ STICKER ============ -->
-  <section class="bg-sand">
+  <section class="bg-white">
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="flex justify-center reveal">
@@ -273,49 +262,14 @@
         <p class="text-white/60 text-lg mb-10 max-w-md mx-auto">Sign up and we'll keep you posted on progress, launches, and dog stories.</p>
       </div>
       <div class="reveal" style="transition-delay:0.1s">
-        <iframe class="mc-iframe" srcdoc="
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <link href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap' rel='stylesheet'>
-            <style>
-              * { margin: 0; padding: 0; box-sizing: border-box; }
-              body { font-family: 'DM Sans', sans-serif; background: transparent; display: flex; justify-content: center; padding: 16px; }
-              form { width: 100%; max-width: 440px; }
-              label { color: rgba(255,255,255,0.7); font-size: 14px; display: block; margin-bottom: 8px; }
-              input[type=email] {
-                width: 100%; padding: 16px 20px; font-size: 16px; font-family: inherit;
-                border: 2px solid rgba(255,255,255,0.2); border-radius: 50px;
-                background: rgba(255,255,255,0.1); color: #fff;
-                outline: none; transition: border-color 0.3s;
-              }
-              input[type=email]::placeholder { color: rgba(255,255,255,0.4); }
-              input[type=email]:focus { border-color: rgba(255,255,255,0.5); }
-              input[type=submit] {
-                width: 100%; margin-top: 12px; padding: 16px 20px;
-                font-size: 16px; font-weight: 500; font-family: inherit;
-                background: #C8842F; color: #fff; border: none; border-radius: 50px;
-                cursor: pointer; transition: background 0.3s;
-              }
-              input[type=submit]:hover { background: #E8A84C; }
-              .hidden { position: absolute; left: -5000px; }
-              .response { color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 12px; }
-            </style>
-          </head>
-          <body>
-            <form action='https://thedogbeer.us20.list-manage.com/subscribe/post?u=8a5c915262b92aff3be9c7a2c&amp;id=d8a072290a'
-                  method='post' target='_blank' novalidate>
-              <input type='email' name='EMAIL' placeholder='Your email address' required>
-              <div class='hidden'><input type='text' name='b_8a5c915262b92aff3be9c7a2c_d8a072290a' tabindex='-1' value=''></div>
-              <input type='submit' value='Keep Me Informed'>
-              <div id='mce-responses'>
-                <div class='response' id='mce-error-response' style='display:none'></div>
-                <div class='response' id='mce-success-response' style='display:none'></div>
-              </div>
-            </form>
-          </body>
-          </html>
-        "></iframe>
+        <form action="subscribe.php" method="post" class="max-w-md mx-auto">
+          <input type="email" name="EMAIL" placeholder="Your email address" required
+                 class="w-full px-6 py-4 rounded-full bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-base outline-none focus:border-white/50 transition-colors">
+          <button type="submit"
+                  class="w-full mt-3 px-6 py-4 rounded-full bg-amber hover:bg-amber-light text-white font-medium text-base transition-colors duration-300">
+            Keep Me Informed
+          </button>
+        </form>
       </div>
     </div>
   </section>
