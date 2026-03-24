@@ -265,7 +265,8 @@
         <p class="text-white/60 text-lg mb-10 max-w-md mx-auto">Sign up and we'll keep you posted on progress, launches, and dog stories.</p>
       </div>
       <div class="reveal" style="transition-delay:0.1s">
-        <form action="subscribe.php" method="post" class="max-w-md mx-auto">
+        <div id="sub-msg" class="hidden max-w-md mx-auto mb-6 px-6 py-4 rounded-full text-base font-medium"></div>
+        <form action="subscribe.php" method="post" class="max-w-md mx-auto" id="sub-form">
           <input type="email" name="EMAIL" placeholder="Your email address" required
                  class="w-full px-6 py-4 rounded-full bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-base outline-none focus:border-white/50 transition-colors">
           <button type="submit"
@@ -308,6 +309,21 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal, .reveal-children').forEach(el => observer.observe(el));
+
+    // Newsletter feedback
+    const subParam = new URLSearchParams(window.location.search).get('sub');
+    if (subParam) {
+      const msg = document.getElementById('sub-msg');
+      const form = document.getElementById('sub-form');
+      const messages = { ok: 'Thanks! You\'re signed up.', invalid: 'Please enter a valid email.', wait: 'Please wait a moment before trying again.' };
+      if (msg && messages[subParam]) {
+        msg.textContent = messages[subParam];
+        msg.classList.remove('hidden');
+        msg.classList.add(subParam === 'ok' ? 'bg-white/20' : 'bg-red-500/30', 'text-white');
+        if (subParam === 'ok' && form) form.classList.add('hidden');
+        document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
 
     // Subtle parallax on hero image
     const heroImg = document.querySelector('.hero-img');

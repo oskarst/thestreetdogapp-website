@@ -1,7 +1,7 @@
 <?php
 /**
  * Newsletter subscribe endpoint.
- * Saves email to a CSV outside the web root, then forwards to Mailchimp.
+ * Saves email to a CSV outside the web root.
  */
 
 // Only accept POST
@@ -52,13 +52,5 @@ if ($fp) {
     fclose($fp);
 }
 
-// Forward to Mailchimp
-$mcUrl = 'https://thedogbeer.us20.list-manage.com/subscribe/post';
-$mcParams = http_build_query([
-    'u'     => '8a5c915262b92aff3be9c7a2c',
-    'id'    => 'd8a072290a',
-    'EMAIL' => $email,
-]);
-
-header('Location: ' . $mcUrl . '?' . $mcParams);
+header('Location: /?sub=ok');
 exit;
