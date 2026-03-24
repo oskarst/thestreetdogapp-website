@@ -196,15 +196,16 @@
     </div>
     <div class="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-28 lg:pb-32">
       <div class="max-w-2xl">
-        <p class="text-amber-light font-semibold tracking-[0.2em] uppercase text-sm mb-4 text-shadow">A better future for stray dogs</p>
-        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 text-shadow">
+        <p class="text-amber-light font-semibold tracking-[0.2em] uppercase text-sm mb-4 reveal hero-reveal text-shadow">A better future for stray dogs</p>
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 reveal hero-reveal text-shadow" style="transition-delay:0.1s">
           The Street<br>Dog App
         </h1>
-        <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 text-shadow">
+        <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 reveal hero-reveal text-shadow" style="transition-delay:0.2s">
           Track, protect, and raise awareness for street dogs around the world.
         </p>
         <a href="#newsletter"
-           class="inline-block bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300">
+           class="inline-block bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 reveal hero-reveal"
+           style="transition-delay:0.3s">
           Sign up for newsletter
         </a>
       </div>
@@ -436,7 +437,11 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal, .reveal-children').forEach(el => observer.observe(el));
+    // Hero reveals fire immediately (avoids LCP render delay)
+    document.querySelectorAll('.hero-reveal').forEach(el => el.classList.add('visible'));
+
+    // Everything else uses IntersectionObserver
+    document.querySelectorAll('.reveal:not(.hero-reveal), .reveal-children').forEach(el => observer.observe(el));
 
     // Newsletter feedback
     const subParam = new URLSearchParams(window.location.search).get('sub');
