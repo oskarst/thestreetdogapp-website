@@ -71,6 +71,9 @@
       pointer-events: none;
     }
 
+    /* Hero text shadow for contrast */
+    .text-shadow { text-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4); }
+
     /* Image zoom on hover */
     .img-zoom img {
       transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -87,15 +90,15 @@
     <div class="absolute inset-0">
       <img src="img/pexels-anna-kester-10376433.jpg" alt="Street dog on mountain rocks"
            class="hero-img w-full h-full object-cover object-center">
-      <div class="absolute inset-0 bg-gradient-to-t from-bark/90 via-bark/50 to-bark/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-bark/80 via-bark/30 to-transparent"></div>
     </div>
     <div class="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-28 lg:pb-32">
       <div class="max-w-2xl">
-        <p class="text-amber-light font-medium tracking-[0.2em] uppercase text-sm mb-4 reveal">A better future for stray dogs</p>
-        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 reveal" style="transition-delay:0.1s">
+        <p class="text-amber-light font-medium tracking-[0.2em] uppercase text-sm mb-4 reveal text-shadow">A better future for stray dogs</p>
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 reveal text-shadow" style="transition-delay:0.1s">
           The Street<br>Dog App
         </h1>
-        <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 reveal" style="transition-delay:0.2s">
+        <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 reveal text-shadow" style="transition-delay:0.2s">
           Track, protect, and raise awareness for street dogs around the world.
         </p>
         <a href="#newsletter"
