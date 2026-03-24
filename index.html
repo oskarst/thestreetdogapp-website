@@ -68,10 +68,19 @@
   }
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Preconnect to 3rd parties -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+  <!-- Preload hero image (LCP) -->
+  <link rel="preload" as="image" type="image/webp" href="img/pexels-anna-kester-10376433.webp">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Non-render-blocking fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <script>
     tailwind.config = {
       theme: {
@@ -178,22 +187,24 @@
   <!-- ============ HERO ============ -->
   <section aria-label="Hero" class="relative min-h-screen flex items-end overflow-hidden grain">
     <div class="absolute inset-0">
-      <img src="img/pexels-anna-kester-10376433.jpg" alt="Street dog on mountain rocks"
-           class="hero-img w-full h-full object-cover object-center">
+      <picture>
+        <source srcset="img/pexels-anna-kester-10376433.webp" type="image/webp">
+        <img src="img/pexels-anna-kester-10376433.jpg" alt="Street dog standing on mountain rocks, looking back over a green valley"
+             class="hero-img w-full h-full object-cover object-center" width="800" height="1200" fetchpriority="high">
+      </picture>
       <div class="absolute inset-0 bg-gradient-to-r from-bark/80 via-bark/30 to-transparent"></div>
     </div>
     <div class="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-28 lg:pb-32">
       <div class="max-w-2xl">
-        <p class="text-amber-light font-semibold tracking-[0.2em] uppercase text-sm mb-4 reveal text-shadow">A better future for stray dogs</p>
-        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 reveal text-shadow" style="transition-delay:0.1s">
+        <p class="text-amber-light font-semibold tracking-[0.2em] uppercase text-sm mb-4 text-shadow">A better future for stray dogs</p>
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 text-shadow">
           The Street<br>Dog App
         </h1>
-        <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 reveal text-shadow" style="transition-delay:0.2s">
+        <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 text-shadow">
           Track, protect, and raise awareness for street dogs around the world.
         </p>
         <a href="#newsletter"
-           class="inline-block bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 reveal"
-           style="transition-delay:0.3s">
+           class="inline-block bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300">
           Sign up for newsletter
         </a>
       </div>
@@ -209,8 +220,11 @@
   <!-- ============ RAISE AWARENESS ============ -->
   <section aria-label="Raise Awareness" class="grid md:grid-cols-2 min-h-[70vh]">
     <div class="overflow-hidden img-zoom">
-      <img src="img/pexels-blue-bird-7210698.jpg" alt="Human hand and dog paw high-five"
-           class="w-full h-full object-cover" loading="lazy">
+      <picture>
+        <source srcset="img/pexels-blue-bird-7210698.webp" type="image/webp">
+        <img src="img/pexels-blue-bird-7210698.jpg" alt="Human hand and dog paw meeting in a high-five gesture"
+             class="w-full h-full object-cover" loading="lazy" width="500" height="750">
+      </picture>
     </div>
     <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0">
       <div class="max-w-lg reveal">
@@ -242,8 +256,11 @@
       </div>
     </div>
     <div class="overflow-hidden img-zoom order-1 md:order-2">
-      <img src="img/pexels-eddie-galaxy-3628100.jpg" alt="Street dogs looking over a wall"
-           class="w-full h-full object-cover" loading="lazy">
+      <picture>
+        <source srcset="img/pexels-eddie-galaxy-3628100.webp" type="image/webp">
+        <img src="img/pexels-eddie-galaxy-3628100.jpg" alt="Four street dogs peering over a concrete wall against a blue sky"
+             class="w-full h-full object-cover" loading="lazy" width="800" height="532">
+      </picture>
     </div>
   </section>
 
@@ -258,7 +275,10 @@
         <!-- Frank -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_2px_24px_rgba(44,33,24,0.06)] hover:shadow-[0_8px_40px_rgba(44,33,24,0.1)] transition-shadow duration-500">
           <div class="flex justify-center pt-6">
-            <img src="img/pexels-mati-mango-4052809.jpg" alt="Frank the dog" class="w-32 h-32 rounded-full object-cover" loading="lazy">
+            <picture>
+              <source srcset="img/pexels-mati-mango-4052809.webp" type="image/webp">
+              <img src="img/pexels-mati-mango-4052809.jpg" alt="Frank, a brown and white pit bull mix, looking up at the camera" class="w-32 h-32 rounded-full object-cover" loading="lazy" width="256" height="256">
+            </picture>
           </div>
           <div class="p-6">
             <p class="font-serif text-xl italic text-bark mb-3">"Woof!"</p>
@@ -273,7 +293,10 @@
         <!-- Bubu -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_2px_24px_rgba(44,33,24,0.06)] hover:shadow-[0_8px_40px_rgba(44,33,24,0.1)] transition-shadow duration-500">
           <div class="flex justify-center pt-6">
-            <img src="img/pexels-cristina-anskaja-10433404.jpg" alt="Bubu the dog" class="w-32 h-32 rounded-full object-cover" loading="lazy">
+            <picture>
+              <source srcset="img/pexels-cristina-anskaja-10433404.webp" type="image/webp">
+              <img src="img/pexels-cristina-anskaja-10433404.jpg" alt="Bubu, a fluffy white dog with a gentle expression" class="w-32 h-32 rounded-full object-cover" loading="lazy" width="256" height="256">
+            </picture>
           </div>
           <div class="p-6">
             <p class="font-serif text-xl italic text-bark mb-3">"Woof Woof"</p>
@@ -288,7 +311,10 @@
         <!-- Kupata -->
         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_2px_24px_rgba(44,33,24,0.06)] hover:shadow-[0_8px_40px_rgba(44,33,24,0.1)] transition-shadow duration-500">
           <div class="flex justify-center pt-6">
-            <img src="img/pexels-raynand-yray-ii-6559738 (1).jpg" alt="Kupata the dog" class="w-32 h-32 rounded-full object-cover" loading="lazy">
+            <picture>
+              <source srcset="img/pexels-raynand-yray-ii-6559738.webp" type="image/webp">
+              <img src="img/pexels-raynand-yray-ii-6559738 (1).jpg" alt="Kupata, a dark-furred dog resting at a shelter" class="w-32 h-32 rounded-full object-cover" loading="lazy" width="182" height="182">
+            </picture>
           </div>
           <div class="p-6">
             <p class="font-serif text-xl italic text-bark mb-3">"Woof Woof Woof.."</p>
@@ -317,7 +343,10 @@
           </p>
         </div>
         <div class="reveal md:absolute md:right-0 flex justify-center md:justify-end" style="transition-delay:0.15s">
-          <img src="img/phone-app.png" alt="App screenshot on phone" class="max-w-xs md:max-w-sm lg:max-w-md drop-shadow-2xl" loading="lazy">
+          <picture>
+            <source srcset="img/phone-app.webp" type="image/webp">
+            <img src="img/phone-app.png" alt="The Street Dog App showing a list of tracked dogs on a phone screen" class="max-w-xs md:max-w-sm lg:max-w-md drop-shadow-2xl" loading="lazy" width="480" height="720">
+          </picture>
         </div>
       </div>
     </div>
@@ -328,7 +357,10 @@
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="flex justify-center reveal">
-          <img src="img/sticker.png" alt="All You Need Is Dog sticker" class="max-w-sm md:max-w-md" loading="lazy">
+          <picture>
+            <source srcset="img/sticker.webp" type="image/webp">
+            <img src="img/sticker.png" alt="All You Need Is Dog sticker featuring a dog in a yellow submarine" class="max-w-sm md:max-w-md" loading="lazy" width="500" height="500">
+          </picture>
         </div>
         <div class="reveal" style="transition-delay:0.1s">
           <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Free Download</span>
@@ -375,7 +407,10 @@
   <footer role="contentinfo" class="bg-bark text-white/50 py-12 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
       <div class="flex items-center gap-3">
-        <img src="img/logo-light.png" alt="Logo" class="h-8 opacity-50">
+        <picture>
+          <source srcset="img/logo-light.webp" type="image/webp">
+          <img src="img/logo-light.png" alt="The Street Dog App logo" class="h-8 opacity-50" width="35" height="32">
+        </picture>
       </div>
       <div class="text-center">
         <span>hello@developers-alliance.com</span>
