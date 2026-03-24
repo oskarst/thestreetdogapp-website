@@ -2,9 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Street Dog App</title>
-  <meta name="description" content="The Street Dog App. Crowdsourced data collected through this app is part of research to get an insight into the secret lives of street dogs.">
+  <title>The Street Dog App — Track, Protect &amp; Advocate for Street Dogs</title>
+  <meta name="description" content="Join The Street Dog App community. Track street dogs, crowdsource research data, raise awareness and help improve welfare for stray dogs worldwide.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://thestreetdogapp.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Developers Alliance">
+  <meta name="theme-color" content="#2C2118">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Street Dog App">
+  <meta property="og:title" content="The Street Dog App — Track, Protect & Advocate for Street Dogs">
+  <meta property="og:description" content="Join The Street Dog App community. Track street dogs, crowdsource research data, raise awareness and help improve welfare for stray dogs worldwide.">
+  <meta property="og:url" content="https://thestreetdogapp.com/">
+  <meta property="og:image" content="https://thestreetdogapp.com/img/pexels-anna-kester-10376433.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Street Dog App — Track, Protect & Advocate for Street Dogs">
+  <meta name="twitter:description" content="Track street dogs, crowdsource research data, raise awareness and help improve welfare for stray dogs worldwide.">
+  <meta name="twitter:image" content="https://thestreetdogapp.com/img/pexels-anna-kester-10376433.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "The Street Dog App",
+        "url": "https://thestreetdogapp.com",
+        "description": "Crowdsourced street dog tracking platform for research, awareness and welfare improvement.",
+        "publisher": { "@id": "https://thestreetdogapp.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://thestreetdogapp.com/#organization",
+        "name": "The Street Dog App",
+        "url": "https://thestreetdogapp.com",
+        "logo": "https://thestreetdogapp.com/img/logo-dark.png",
+        "email": "hello@developers-alliance.com",
+        "sameAs": ["https://www.facebook.com/devalliance"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "The Street Dog App",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web",
+        "description": "An interactive application to track street dogs, become a volunteer, raise awareness, collect crowdsourced data, and get dog-related information.",
+        "url": "https://woof.thestreetdogapp.com",
+        "author": { "@id": "https://thestreetdogapp.com/#organization" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,12 +144,39 @@
     .img-zoom:hover img {
       transform: scale(1.04);
     }
+
+    /* Skip to content */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: #2C2118; color: #fff; padding: 12px 24px; font-size: 14px;
+      border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* Focus ring */
+    :focus-visible {
+      outline: 3px solid #C8842F;
+      outline-offset: 2px;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .reveal-children > * { opacity: 1; transform: none; transition: none; }
+      .hero-img { transition: none; }
+      .img-zoom img { transition: none; }
+      html { scroll-behavior: auto; }
+      .animate-bounce { animation: none; }
+    }
   </style>
 </head>
 <body class="bg-cream text-bark antialiased">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <main id="main-content" role="main">
 
   <!-- ============ HERO ============ -->
-  <section class="relative min-h-screen flex items-end overflow-hidden grain">
+  <section aria-label="Hero" class="relative min-h-screen flex items-end overflow-hidden grain">
     <div class="absolute inset-0">
       <img src="img/pexels-anna-kester-10376433.jpg" alt="Street dog on mountain rocks"
            class="hero-img w-full h-full object-cover object-center">
@@ -109,7 +199,7 @@
       </div>
     </div>
     <!-- Scroll indicator -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce" aria-hidden="true">
       <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
       </svg>
@@ -117,7 +207,7 @@
   </section>
 
   <!-- ============ RAISE AWARENESS ============ -->
-  <section class="grid md:grid-cols-2 min-h-[70vh]">
+  <section aria-label="Raise Awareness" class="grid md:grid-cols-2 min-h-[70vh]">
     <div class="overflow-hidden img-zoom">
       <img src="img/pexels-blue-bird-7210698.jpg" alt="Human hand and dog paw high-five"
            class="w-full h-full object-cover" loading="lazy">
@@ -136,7 +226,7 @@
   </section>
 
   <!-- ============ CROWD SOURCED DATA ============ -->
-  <section class="grid md:grid-cols-2 min-h-[70vh] bg-sand">
+  <section aria-label="Crowdsourced Research" class="grid md:grid-cols-2 min-h-[70vh] bg-sand">
     <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0 order-2 md:order-1">
       <div class="max-w-lg reveal">
         <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">The Data</span>
@@ -158,7 +248,7 @@
   </section>
 
   <!-- ============ DOG TESTIMONIALS ============ -->
-  <section class="py-24 md:py-32 px-6">
+  <section aria-label="Dog Testimonials" class="py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Testimonials</span>
@@ -215,7 +305,7 @@
   </section>
 
   <!-- ============ COMING SOON / APP ============ -->
-  <section class="bg-bark text-white relative overflow-hidden grain">
+  <section aria-label="The App — Coming Soon" class="bg-bark text-white relative overflow-hidden grain">
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
       <div class="relative grid md:grid-cols-2 gap-12 items-center">
         <div class="reveal">
@@ -234,7 +324,7 @@
   </section>
 
   <!-- ============ STICKER ============ -->
-  <section class="bg-white">
+  <section aria-label="Download Sticker" class="bg-white">
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="flex justify-center reveal">
@@ -257,7 +347,7 @@
   </section>
 
   <!-- ============ NEWSLETTER ============ -->
-  <section id="newsletter" class="bg-sage relative grain">
+  <section id="newsletter" aria-label="Newsletter Signup" class="bg-sage relative grain">
     <div class="max-w-3xl mx-auto px-6 py-24 md:py-32 text-center">
       <div class="reveal">
         <span class="text-white/60 font-medium tracking-[0.15em] uppercase text-xs">Stay Connected</span>
@@ -267,7 +357,8 @@
       <div class="reveal" style="transition-delay:0.1s">
         <div id="sub-msg" class="hidden max-w-md mx-auto mb-6 px-6 py-4 rounded-full text-base font-medium"></div>
         <form action="subscribe.php" method="post" class="max-w-md mx-auto" id="sub-form">
-          <input type="email" name="EMAIL" placeholder="Your email address" required
+          <label for="email-input" class="sr-only">Email address</label>
+          <input id="email-input" type="email" name="EMAIL" placeholder="Your email address" required autocomplete="email"
                  class="w-full px-6 py-4 rounded-full bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-base outline-none focus:border-white/50 transition-colors">
           <button type="submit"
                   class="w-full mt-3 px-6 py-4 rounded-full bg-amber hover:bg-amber-light text-white font-medium text-base transition-colors duration-300">
@@ -278,8 +369,10 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ============ FOOTER ============ -->
-  <footer class="bg-bark text-white/50 py-12 px-6">
+  <footer role="contentinfo" class="bg-bark text-white/50 py-12 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
       <div class="flex items-center gap-3">
         <img src="img/logo-light.png" alt="Logo" class="h-8 opacity-50">
@@ -290,7 +383,7 @@
         <span>built by <a href="https://developers-alliance.com" class="text-white/70 hover:text-white transition-colors">developers-alliance.com</a></span>
       </div>
       <div>
-        <a href="https://www.facebook.com/devalliance" target="_blank" class="text-white/40 hover:text-white transition-colors">
+        <a href="https://www.facebook.com/devalliance" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="text-white/40 hover:text-white transition-colors">
           <svg class="w-5 h-5 inline-block" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </a>
       </div>
