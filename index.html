@@ -103,15 +103,13 @@
     .reveal-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
     .reveal-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
 
-    /* Hero fade-in — desktop only (mobile stays visible for LCP) */
-    @media (min-width: 768px) {
-      @keyframes heroFadeIn {
-        from { opacity: 0; transform: translateY(32px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .hero-reveal {
-        animation: heroFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-      }
+    /* Hero entrance — slide up + blur (no opacity:0, LCP-safe) */
+    @keyframes heroSlideIn {
+      from { transform: translateY(24px); filter: blur(4px); }
+      to { transform: translateY(0); filter: blur(0); }
+    }
+    .hero-reveal {
+      animation: heroSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     /* Parallax-lite on hero */
