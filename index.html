@@ -68,41 +68,19 @@
   }
   </script>
 
-  <!-- Preconnect to 3rd parties -->
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <!-- Preconnect to fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Preload hero image (LCP) -->
   <link rel="preload" as="image" type="image/webp" href="img/pexels-anna-kester-10376433.webp">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Non-render-blocking fonts -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: '#FAF7F2',
-            sand: '#F0E8DA',
-            bark: '#2C2118',
-            amber: '#C8842F',
-            'amber-light': '#E8A84C',
-            sage: '#5A7D60',
-            'sage-light': '#7BA882',
-            stone: '#8C7B6B',
-          },
-          fontFamily: {
-            serif: ['"DM Serif Display"', 'Georgia', 'serif'],
-            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+
+  <!-- Tailwind CSS (purged, inlined — no CDN) -->
+  <link rel="stylesheet" href="css/tailwind.min.css">
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', system-ui, sans-serif; }
@@ -463,10 +441,17 @@
     // Subtle parallax on hero image
     const heroImg = document.querySelector('.hero-img');
     if (heroImg && window.innerWidth > 768) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        if (y < window.innerHeight) {
-          heroImg.style.transform = `translateY(${y * 0.25}px) scale(1.05)`;
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const y = window.scrollY;
+            if (y < window.innerHeight) {
+              heroImg.style.transform = `translateY(${y * 0.25}px) scale(1.05)`;
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       }, { passive: true });
     }
