@@ -161,14 +161,17 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* "The Problem" — keep the image from forcing a huge section on mobile.
-       Tailwind utilities for these are not in the prebuilt purged CSS, so
-       inline them here. */
+    /* "The Problem" — cap the image height so it doesn't drive the grid
+       row height (500x750 aspect would otherwise force ~900px on
+       desktop). Tighten the copy padding so the section reads as one
+       concise unit rather than 70vh of whitespace.
+       Tailwind utilities for these are not in the prebuilt purged CSS,
+       so inline them here. */
     .problem-image { max-height: 50vh; }
     .problem-copy { padding-top: 3rem; padding-bottom: 3rem; }
     @media (min-width: 768px) {
-      .problem-image { max-height: none; }
-      .problem-copy { padding-top: 4rem; padding-bottom: 4rem; }
+      .problem-image { max-height: 26rem; }
+      .problem-copy { padding-top: 2.5rem; padding-bottom: 2.5rem; }
     }
 
     /* "Field log" ornamental divider above Recent sightings. */
