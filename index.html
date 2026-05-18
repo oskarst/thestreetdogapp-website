@@ -174,28 +174,6 @@
       .problem-copy { padding-top: 2.5rem; padding-bottom: 2.5rem; }
     }
 
-    /* "Field log" ornamental divider above Recent sightings. */
-    .field-log-divider { padding-top: 2.5rem; }
-    @media (min-width: 768px) { .field-log-divider { padding-top: 3.5rem; } }
-    .field-log-divider-inner {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .field-log-divider-line {
-      flex: 1;
-      height: 1px;
-      background: rgba(120, 113, 108, 0.25);
-    }
-    .field-log-divider-label {
-      color: rgba(120, 113, 108, 0.65);
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-weight: 500;
-    }
-
     /* Focus ring */
     :focus-visible {
       outline: 3px solid #C8842F;
@@ -661,7 +639,7 @@
   </section>
 
   <!-- ============ FROM DATA TO WELFARE ============ -->
-  <section aria-label="From data to welfare" class="py-24 md:py-32 px-6">
+  <section aria-label="From data to welfare" class="bg-white py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">The loop</span>
@@ -691,14 +669,7 @@
   </section>
 
   <!-- ============ RECENT SIGHTINGS FEED ============ -->
-  <div aria-hidden="true" class="field-log-divider bg-cream px-6">
-    <div class="field-log-divider-inner mx-auto max-w-sm">
-      <span class="field-log-divider-line"></span>
-      <span class="field-log-divider-label">field log</span>
-      <span class="field-log-divider-line"></span>
-    </div>
-  </div>
-  <section id="recent-sightings" aria-label="Recent sightings" class="bg-cream py-16 md:py-24 px-6">
+  <section id="recent-sightings" aria-label="Recent sightings" class="bg-cream py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12 reveal">
         <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">Live from the field</span>
