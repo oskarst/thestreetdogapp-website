@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>The Street Dog App, Citizen Science for Free-Roaming Dogs</title>
-  <meta name="description" content="A citizen-science platform that turns everyday sightings into research and welfare action for the world's street dogs. Help map, monitor, and protect free-roaming dogs.">
+  <meta name="description" content="A citizen-science platform for understanding Tbilisi's street dog population. Everyday sightings turn into research and welfare action for the city's free-roaming dogs.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Street Dog App">
   <meta property="og:title" content="The Street Dog App, Citizen Science for Free-Roaming Dogs">
-  <meta property="og:description" content="A citizen-science platform that turns everyday sightings into research and welfare action for the world's street dogs.">
+  <meta property="og:description" content="A citizen-science platform for understanding Tbilisi's street dog population through everyday sightings.">
   <meta property="og:url" content="https://thestreetdogapp.com/">
   <meta property="og:image" content="https://thestreetdogapp.com/img/pexels-anna-kester-10376433.jpg">
   <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Street Dog App, Citizen Science for Free-Roaming Dogs">
-  <meta name="twitter:description" content="A citizen-science platform that turns everyday sightings into research and welfare action for the world's street dogs.">
+  <meta name="twitter:description" content="A citizen-science platform for understanding Tbilisi's street dog population through everyday sightings.">
   <meta name="twitter:image" content="https://thestreetdogapp.com/img/pexels-anna-kester-10376433.jpg">
 
   <!-- Structured Data -->
@@ -38,7 +38,7 @@
         "@type": "WebSite",
         "name": "The Street Dog App",
         "url": "https://thestreetdogapp.com",
-        "description": "Citizen-science platform for tracking, monitoring, and improving the welfare of free-roaming dogs.",
+        "description": "Citizen-science platform for tracking, monitoring, and improving the welfare of Tbilisi's free-roaming dogs.",
         "publisher": { "@id": "https://thestreetdogapp.com/#organization" }
       },
       {
@@ -52,8 +52,8 @@
       },
       {
         "@type": "ResearchProject",
-        "name": "The Street Dog App Citizen-Science Programme",
-        "description": "An open, crowdsourced effort to map the world's free-roaming dog population, monitor individual welfare over time, and inform TNR, veterinary, and adoption programmes.",
+        "name": "Tbilisi Street Dog Citizen-Science Programme",
+        "description": "An open, crowdsourced effort to map and monitor Tbilisi's free-roaming dog population, build per-dog welfare records over time, and inform TNR, veterinary, and adoption programmes.",
         "url": "https://thestreetdogapp.com",
         "funder": { "@id": "https://thestreetdogapp.com/#organization" }
       },
@@ -62,7 +62,7 @@
         "name": "The Street Dog App",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "Web",
-        "description": "Log street dog sightings, build longitudinal welfare records, and contribute to an open dataset on free-roaming dogs.",
+        "description": "Log street dog sightings in Tbilisi, build longitudinal welfare records, and contribute to an open dataset on the city's free-roaming dogs.",
         "url": "https://woof.thestreetdogapp.com",
         "author": { "@id": "https://thestreetdogapp.com/#organization" },
         "offers": {
@@ -170,25 +170,24 @@
       max-width: 72rem;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 0;
       padding: 0 1.5rem;
     }
-    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
     .stat-cell {
       padding: 2.25rem 1.25rem;
-      border-right: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       text-align: center;
     }
+    .stat-cell:last-child { border-bottom: none; }
     @media (min-width: 768px) {
-      .stat-cell { border-bottom: none; padding: 2.5rem 1rem; }
+      .stat-cell {
+        border-bottom: none;
+        border-right: 1px solid rgba(255,255,255,0.06);
+        padding: 2.5rem 1rem;
+      }
       .stat-cell:last-child { border-right: none; }
-    }
-    .stat-cell:nth-child(2n) { border-right: none; }
-    @media (min-width: 768px) {
-      .stat-cell:nth-child(2n) { border-right: 1px solid rgba(255,255,255,0.06); }
-      .stat-cell:nth-child(4n) { border-right: none; }
     }
     .stat-num {
       font-family: 'DM Serif Display', serif;
@@ -205,6 +204,21 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.5);
       margin-top: 0.6rem;
+    }
+
+    /* How It Works grid (5 cards: 1 / 2 / 3 cols, last card spans full width on lg) */
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) { .how-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+    @media (min-width: 1024px) {
+      .how-grid { grid-template-columns: repeat(3, 1fr); }
+      .how-grid > :nth-child(4),
+      .how-grid > :nth-child(5) {
+        grid-column: span 1;
+      }
     }
 
     /* Numbered steps */
@@ -425,7 +439,7 @@
           The Street<br>Dog App
         </h1>
         <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 hero-reveal text-shadow" style="animation-delay:0.2s">
-          A research platform powered by everyday sightings. Help map the world's free-roaming dogs and improve their welfare through ongoing monitoring.
+          A research platform powered by everyday sightings. Help map Tbilisi's free-roaming dogs and improve their welfare through ongoing monitoring.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 hero-reveal" style="animation-delay:0.3s">
           <a href="https://woof.thestreetdogapp.com" target="_blank" rel="noopener"
@@ -465,10 +479,6 @@
         <div class="stat-num" data-stat="contributors">320</div>
         <div class="stat-label">Contributors</div>
       </div>
-      <div class="stat-cell">
-        <div class="stat-num" data-stat="countries">14</div>
-        <div class="stat-label">Countries</div>
-      </div>
     </div>
   </section>
 
@@ -484,12 +494,12 @@
     <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0">
       <div class="max-w-lg reveal">
         <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">The gap</span>
-        <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Nobody knows how many street dogs there are.</h2>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">How well do we actually know Tbilisi's street dogs?</h2>
         <p class="text-stone text-lg leading-relaxed mb-4">
-          Free-roaming dogs are one of the most populous mammals on earth. Yet most countries have no reliable dataset on where they live, how they move, or what condition they're in.
+          The city counts them. We want to understand them. Where each dog ranges, who it travels with, how its body condition shifts with the seasons, how its life unfolds year over year.
         </p>
         <p class="text-stone text-lg leading-relaxed">
-          Welfare programmes, from sterilisation to international adoption, often run on guesswork. This is the gap we're closing.
+          A real public dataset on Tbilisi's free-roaming dogs does not exist yet. This platform builds it, one sighting at a time.
         </p>
       </div>
     </div>
@@ -500,23 +510,33 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">How it works</span>
-        <h2 class="font-serif text-4xl md:text-5xl mt-3">Three steps from sighting to science.</h2>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3">From sighting to story, in five steps.</h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-8 reveal-children">
+      <div class="how-grid reveal-children">
         <div class="card-soft">
           <span class="step-num">1</span>
-          <h3>Spot a dog</h3>
-          <p>Open the app, take a photo. Location, time, and ear-tag detection are handled for you.</p>
+          <h3>Spot a street dog</h3>
+          <p>Anywhere in the city. The dog you walk past every morning, the one sleeping by the cafe, a new face in the courtyard.</p>
         </div>
         <div class="card-soft">
           <span class="step-num">2</span>
-          <h3>Log the encounter</h3>
-          <p>Note body condition, behaviour, group size. Re-spot the same dog later to build a life history.</p>
+          <h3>Read the ear tag</h3>
+          <p>Ear-tag IDs are how individual dogs are identified across sightings. Snap the tag and the app's OCR fills the number in for you.</p>
         </div>
         <div class="card-soft">
           <span class="step-num">3</span>
-          <h3>Feed the dataset</h3>
-          <p>Every sighting joins an open record that researchers, vets, and shelters can act on.</p>
+          <h3>Photograph and describe</h3>
+          <p>Take a picture of the dog and add what you can see, body condition, size, and mood. It only takes a few seconds.</p>
+        </div>
+        <div class="card-soft">
+          <span class="step-num">4</span>
+          <h3>Flag or follow up (optional)</h3>
+          <p>Report injuries or issues to local dog organisations, or pull up adoption information if you want to take things further.</p>
+        </div>
+        <div class="card-soft">
+          <span class="step-num">5</span>
+          <h3>Peek into their lives</h3>
+          <p>Browse the same dog over weeks and months. Where it lives, who it spends time with, how it changes. The secret lives of street dogs, becoming a little less secret.</p>
         </div>
       </div>
     </div>
@@ -614,7 +634,7 @@
         <div class="card-soft">
           <span class="card-bullet">Adoption pipelines</span>
           <h3>Documented dogs find homes.</h3>
-          <p>A documented life history makes international adoption dramatically easier, both for paperwork and for trust.</p>
+          <p>A documented life history makes adoption dramatically easier, whether the new home is across the street or across the border.</p>
         </div>
       </div>
     </div>
@@ -627,7 +647,7 @@
         <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">Live from the field</span>
         <h2 class="font-serif text-4xl md:text-5xl mt-3">Recent sightings.</h2>
         <p class="text-stone text-lg leading-relaxed mt-6 max-w-2xl mx-auto">
-          The latest entries logged by contributors around the world. Updated as they come in.
+          The latest entries logged by contributors across the city. Updated as they come in.
         </p>
       </div>
       <div id="sightings-feed" class="sighting-grid reveal" aria-live="polite">
@@ -723,7 +743,7 @@
           <span class="text-amber-light font-medium tracking-[0.15em] uppercase text-xs">The app</span>
           <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mt-3 mb-6 leading-tight">Become a citizen scientist.</h2>
           <p class="text-white/60 text-lg leading-relaxed mb-8">
-            Spot a dog, snap a photo, log a sighting. Each entry helps map a global dataset on free-roaming dogs. No download required, the app launches straight in your browser.
+            Spot a dog, snap a photo, log a sighting. Each entry helps map Tbilisi's free-roaming dog population. No download required, the app launches straight in your browser.
           </p>
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <a href="https://woof.thestreetdogapp.com" target="_blank" rel="noopener"

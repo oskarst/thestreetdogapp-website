@@ -30,7 +30,11 @@ header('Cache-Control: public, max-age=3600, s-maxage=86400');
 $upstreamUrl = getenv('SIGHTINGS_UPSTREAM_URL') ?: ($_SERVER['SIGHTINGS_UPSTREAM_URL'] ?? '');
 $apiKey      = getenv('SIGHTINGS_API_KEY')      ?: ($_SERVER['SIGHTINGS_API_KEY']      ?? '');
 
-$cacheFile = sys_get_temp_dir() . '/tsda_sightings_cache.json';
+// Sit one level above DocumentRoot (same pattern as subscribers.csv) so it's
+// never web-served. Avoids systemd PrivateTmp surprises when Apache is run
+// with its own namespaced /tmp.
+$cacheDir  = dirname($_SERVER['DOCUMENT_ROOT'] ?? __DIR__ . '/..');
+$cacheFile = $cacheDir . '/sightings-cache.json';
 $ttl       = 86400; // 24 hours
 
 if (is_file($cacheFile) && (time() - filemtime($cacheFile)) < $ttl) {

@@ -18,3 +18,6 @@
 
 # WebP MIME type
 AddType image/webp .webp
+
+# Block access to dot-dirs/files (e.g. /.git, /.env, /.htaccess)
+RedirectMatch 404 /\.(git|env|svn|hg|DS_Store)(/|$)
