@@ -161,16 +161,16 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* "The Problem" — cap the image height so it doesn't drive the grid
-       row height (500x750 aspect would otherwise force ~900px on
-       desktop). Tighten the copy padding so the section reads as one
-       concise unit rather than 70vh of whitespace.
+    /* "The Problem" — on mobile the image would otherwise stack to ~540px
+       above the copy, so cap it; on desktop we want a fixed 650px section
+       and let the image cover-fill that, with the copy vertically centred.
        Tailwind utilities for these are not in the prebuilt purged CSS,
        so inline them here. */
     .problem-image { max-height: 50vh; }
     .problem-copy { padding-top: 3rem; padding-bottom: 3rem; }
     @media (min-width: 768px) {
-      .problem-image { max-height: 26rem; }
+      .problem-section { min-height: 650px; }
+      .problem-image { max-height: none; }
       .problem-copy { padding-top: 2.5rem; padding-bottom: 2.5rem; }
     }
 
