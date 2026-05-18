@@ -164,13 +164,16 @@
     /* "The Problem" — on mobile the image would otherwise stack to ~540px
        above the copy, so cap it; on desktop we want a fixed 650px section
        and let the image cover-fill that, with the copy vertically centred.
+       object-position shifts the cover crop up so more of the top of the
+       photo (the hand) is visible and less of the bottom.
        Tailwind utilities for these are not in the prebuilt purged CSS,
        so inline them here. */
     .problem-image { max-height: 50vh; }
+    .problem-image img { object-position: 50% 25%; }
     .problem-copy { padding-top: 3rem; padding-bottom: 3rem; }
     @media (min-width: 768px) {
       .problem-section { min-height: 650px; }
-      .problem-image { max-height: none; }
+      .problem-image { max-height: 650px; }
       .problem-copy { padding-top: 2.5rem; padding-bottom: 2.5rem; }
     }
 
