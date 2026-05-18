@@ -206,20 +206,14 @@
       margin-top: 0.6rem;
     }
 
-    /* How It Works grid (5 cards: 1 / 2 / 3 cols, last card spans full width on lg) */
+    /* How It Works grid (6 cards: 1 / 2 / 3 columns) */
     .how-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.25rem;
     }
     @media (min-width: 768px) { .how-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
-    @media (min-width: 1024px) {
-      .how-grid { grid-template-columns: repeat(3, 1fr); }
-      .how-grid > :nth-child(4),
-      .how-grid > :nth-child(5) {
-        grid-column: span 1;
-      }
-    }
+    @media (min-width: 1024px) { .how-grid { grid-template-columns: repeat(3, 1fr); } }
 
     /* Numbered steps */
     .step-num {
@@ -510,7 +504,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">How it works</span>
-        <h2 class="font-serif text-4xl md:text-5xl mt-3">From sighting to story, in five steps.</h2>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3">From sighting to story, in six steps.</h2>
       </div>
       <div class="how-grid reveal-children">
         <div class="card-soft">
@@ -537,6 +531,11 @@
           <span class="step-num">5</span>
           <h3>Peek into their lives</h3>
           <p>Browse the same dog over weeks and months. Where it lives, who it spends time with, how it changes. The secret lives of street dogs, becoming a little less secret.</p>
+        </div>
+        <div class="card-soft">
+          <span class="step-num">6</span>
+          <h3>Join a research mission</h3>
+          <p>Pick a district that needs coverage and help us build its dataset, one walk at a time. The app shows you which streets still need eyes.</p>
         </div>
       </div>
     </div>
