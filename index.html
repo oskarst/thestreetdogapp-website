@@ -82,15 +82,25 @@
   <!-- Preload hero image (LCP) -->
   <link rel="preload" as="image" type="image/webp" href="img/pexels-anna-kester-10376433.webp">
 
-  <!-- Non-render-blocking fonts -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <!-- Non-render-blocking fonts (DM Sans only, used for both headings and body) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
   <!-- Tailwind CSS (purged, inlined, no CDN) -->
   <link rel="stylesheet" href="css/tailwind.min.css">
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', system-ui, sans-serif; }
+
+    /* Override Tailwind's font-serif so headings use the same humanist sans
+       as the body (heavier weight + tighter tracking gives them presence
+       without the high-contrast strokes of the previous display serif). */
+    .font-serif {
+      font-family: 'DM Sans', system-ui, sans-serif !important;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .font-serif.italic { font-weight: 500; }
 
     /* Reveal on scroll */
     .reveal {
@@ -190,10 +200,11 @@
       .stat-cell:last-child { border-right: none; }
     }
     .stat-num {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 700;
       font-size: 2.5rem;
       line-height: 1;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       color: #E9B775;
       font-variant-numeric: tabular-nums;
     }
@@ -224,8 +235,9 @@
       border-radius: 9999px;
       background: rgba(200, 132, 47, 0.12);
       color: #C8842F;
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.25rem;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
       margin-bottom: 1rem;
     }
 
@@ -242,9 +254,11 @@
       transform: translateY(-2px);
     }
     .card-soft h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.5rem;
-      line-height: 1.2;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
       margin-bottom: 0.5rem;
       color: #2C2118;
     }
@@ -303,10 +317,12 @@
       padding: 1rem 1.1rem 1.2rem;
     }
     .sighting-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.15rem;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
       color: #2C2118;
       margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
     }
     .sighting-place {
       font-size: 0.85rem;
