@@ -356,6 +356,39 @@
     .pill-link.amber { background: #C8842F; }
     .pill-link.amber:hover { background: #E9B775; }
 
+    /* ============ Fallbacks for Tailwind utilities not in the purged build ============ */
+    /* The compiled tailwind.min.css is missing some classes the markup references.
+       Until the build is regenerated, restore them inline. */
+    .block { display: block; }
+    .inline-flex { display: inline-flex; }
+    .items-start { align-items: flex-start; }
+    .gap-4 { gap: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-12 { margin-top: 3rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .p-2 { padding: 0.5rem; }
+    .leading-snug { line-height: 1.375; }
+    .max-w-\[10rem\] { max-width: 10rem; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
+    .w-4 { width: 1rem; }
+    .h-4 { height: 1rem; }
+    .w-24 { width: 6rem; }
+    .h-24 { height: 6rem; }
+    .shadow-\[0_2px_24px_rgba\(44\,33\,24\,0\.06\)\] { box-shadow: 0 2px 24px rgba(44,33,24,0.06); }
+    .hover\:shadow-\[0_8px_40px_rgba\(44\,33\,24\,0\.1\)\]:hover { box-shadow: 0 8px 40px rgba(44,33,24,0.1); }
+    .hover\:bg-white\/20:hover { background-color: rgba(255,255,255,0.2); }
+    .hover\:text-amber:hover { color: #C8842F; }
+    @media (min-width: 640px) {
+      .sm\:flex-row { flex-direction: row; }
+      .sm\:items-center { align-items: center; }
+    }
+    @media (min-width: 768px) {
+      .md\:items-end { align-items: flex-end; }
+    }
+    /* SVG icons inside flex CTAs were stretching when w/h utilities didn't apply */
+    a svg, button svg { flex-shrink: 0; }
+
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
