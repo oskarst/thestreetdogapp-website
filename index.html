@@ -493,15 +493,15 @@
   </section>
 
   <!-- ============ THE PROBLEM ============ -->
-  <section aria-label="The gap we're closing" class="grid md:grid-cols-2 min-h-[70vh]">
-    <div class="overflow-hidden img-zoom">
+  <section aria-label="The gap we're closing" class="grid md:grid-cols-2">
+    <div class="overflow-hidden img-zoom max-h-[60vh] md:max-h-none">
       <picture>
         <source srcset="img/pexels-blue-bird-7210698.webp" type="image/webp">
         <img src="img/pexels-blue-bird-7210698.jpg" alt="Human hand and dog paw meeting in a high-five gesture"
              class="w-full h-full object-cover" loading="lazy" width="500" height="750">
       </picture>
     </div>
-    <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0">
+    <div class="flex items-center px-8 md:px-16 lg:px-24 py-14 md:py-12">
       <div class="max-w-lg reveal">
         <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">The gap</span>
         <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">How well do we actually know Tbilisi's street dogs?</h2>
@@ -656,7 +656,14 @@
   </section>
 
   <!-- ============ RECENT SIGHTINGS FEED ============ -->
-  <section id="recent-sightings" aria-label="Recent sightings" class="bg-cream py-24 md:py-32 px-6">
+  <div aria-hidden="true" class="bg-cream pt-8 md:pt-12 px-6">
+    <div class="max-w-sm mx-auto flex items-center gap-4">
+      <span class="flex-1 h-px bg-stone/25"></span>
+      <span class="text-stone/40 text-xs tracking-[0.3em] uppercase">field log</span>
+      <span class="flex-1 h-px bg-stone/25"></span>
+    </div>
+  </div>
+  <section id="recent-sightings" aria-label="Recent sightings" class="bg-cream py-16 md:py-24 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12 reveal">
         <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">Live from the field</span>
