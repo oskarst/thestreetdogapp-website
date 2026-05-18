@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Street Dog App — Track, Protect &amp; Advocate for Street Dogs</title>
-  <meta name="description" content="Join The Street Dog App community. Track street dogs, crowdsource research data, raise awareness and help improve welfare for stray dogs worldwide.">
+  <title>The Street Dog App, Citizen Science for Free-Roaming Dogs</title>
+  <meta name="description" content="A citizen-science platform that turns everyday sightings into research and welfare action for the world's street dogs. Help map, monitor, and protect free-roaming dogs.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
@@ -15,8 +15,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="The Street Dog App">
-  <meta property="og:title" content="The Street Dog App — Track, Protect & Advocate for Street Dogs">
-  <meta property="og:description" content="Join The Street Dog App community. Track street dogs, crowdsource research data, raise awareness and help improve welfare for stray dogs worldwide.">
+  <meta property="og:title" content="The Street Dog App, Citizen Science for Free-Roaming Dogs">
+  <meta property="og:description" content="A citizen-science platform that turns everyday sightings into research and welfare action for the world's street dogs.">
   <meta property="og:url" content="https://thestreetdogapp.com/">
   <meta property="og:image" content="https://thestreetdogapp.com/img/pexels-anna-kester-10376433.jpg">
   <meta property="og:image:width" content="1200">
@@ -25,8 +25,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Street Dog App — Track, Protect & Advocate for Street Dogs">
-  <meta name="twitter:description" content="Track street dogs, crowdsource research data, raise awareness and help improve welfare for stray dogs worldwide.">
+  <meta name="twitter:title" content="The Street Dog App, Citizen Science for Free-Roaming Dogs">
+  <meta name="twitter:description" content="A citizen-science platform that turns everyday sightings into research and welfare action for the world's street dogs.">
   <meta name="twitter:image" content="https://thestreetdogapp.com/img/pexels-anna-kester-10376433.jpg">
 
   <!-- Structured Data -->
@@ -38,7 +38,7 @@
         "@type": "WebSite",
         "name": "The Street Dog App",
         "url": "https://thestreetdogapp.com",
-        "description": "Crowdsourced street dog tracking platform for research, awareness and welfare improvement.",
+        "description": "Citizen-science platform for tracking, monitoring, and improving the welfare of free-roaming dogs.",
         "publisher": { "@id": "https://thestreetdogapp.com/#organization" }
       },
       {
@@ -51,11 +51,18 @@
         "sameAs": ["https://www.facebook.com/devalliance"]
       },
       {
+        "@type": "ResearchProject",
+        "name": "The Street Dog App Citizen-Science Programme",
+        "description": "An open, crowdsourced effort to map the world's free-roaming dog population, monitor individual welfare over time, and inform TNR, veterinary, and adoption programmes.",
+        "url": "https://thestreetdogapp.com",
+        "funder": { "@id": "https://thestreetdogapp.com/#organization" }
+      },
+      {
         "@type": "SoftwareApplication",
         "name": "The Street Dog App",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "Web",
-        "description": "An interactive application to track street dogs, become a volunteer, raise awareness, collect crowdsourced data, and get dog-related information.",
+        "description": "Log street dog sightings, build longitudinal welfare records, and contribute to an open dataset on free-roaming dogs.",
         "url": "https://woof.thestreetdogapp.com",
         "author": { "@id": "https://thestreetdogapp.com/#organization" },
         "offers": {
@@ -79,7 +86,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-  <!-- Tailwind CSS (purged, inlined — no CDN) -->
+  <!-- Tailwind CSS (purged, inlined, no CDN) -->
   <link rel="stylesheet" href="css/tailwind.min.css">
   <style>
     html { scroll-behavior: smooth; }
@@ -100,10 +107,13 @@
     /* Staggered children */
     .reveal-children > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0s; }
-    .reveal-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
-    .reveal-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
+    .reveal-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.08s; }
+    .reveal-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
+    .reveal-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.24s; }
+    .reveal-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.32s; }
+    .reveal-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.40s; }
 
-    /* Hero entrance — slide up + blur (no opacity:0, LCP-safe) */
+    /* Hero entrance */
     @keyframes heroSlideIn {
       from { transform: translateY(24px); filter: blur(4px); }
       to { transform: translateY(0); filter: blur(0); }
@@ -113,11 +123,7 @@
     }
 
     /* Parallax-lite on hero */
-    .hero-img {
-      transition: transform 0.1s linear;
-      will-change: transform;
-    }
-
+    .hero-img { transition: transform 0.1s linear; will-change: transform; }
 
     /* Subtle grain overlay */
     .grain::after {
@@ -134,12 +140,8 @@
     .text-shadow { text-shadow: 6px 3px 12px rgba(0,0,0,1), 0 5px 6px rgba(0,0,0,1); }
 
     /* Image zoom on hover */
-    .img-zoom img {
-      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .img-zoom:hover img {
-      transform: scale(1.04);
-    }
+    .img-zoom img { transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .img-zoom:hover img { transform: scale(1.04); }
 
     /* Skip to content */
     .skip-link {
@@ -155,6 +157,205 @@
       outline-offset: 2px;
     }
 
+    /* ============ Custom utility classes (supplement to purged Tailwind) ============ */
+
+    /* Stats strip */
+    .stats-strip {
+      background: #2C2118;
+      color: #fff;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .stats-grid {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-cell {
+      padding: 2.25rem 1.25rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .stat-cell { border-bottom: none; padding: 2.5rem 1rem; }
+      .stat-cell:last-child { border-right: none; }
+    }
+    .stat-cell:nth-child(2n) { border-right: none; }
+    @media (min-width: 768px) {
+      .stat-cell:nth-child(2n) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .stat-cell:nth-child(4n) { border-right: none; }
+    }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #E9B775;
+      font-variant-numeric: tabular-nums;
+    }
+    @media (min-width: 768px) { .stat-num { font-size: 3rem; } }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.6rem;
+    }
+
+    /* Numbered steps */
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 9999px;
+      background: rgba(200, 132, 47, 0.12);
+      color: #C8842F;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Generic cards used by research questions, welfare loop, recent sightings */
+    .card-soft {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 2px 24px rgba(44,33,24,0.06);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .card-soft:hover {
+      box-shadow: 0 8px 40px rgba(44,33,24,0.1);
+      transform: translateY(-2px);
+    }
+    .card-soft h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #2C2118;
+    }
+    .card-soft p { color: #6B5F50; line-height: 1.6; }
+
+    .card-bullet {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #C8842F;
+      margin-bottom: 0.6rem;
+    }
+    .card-bullet.sage { color: #6B8F71; }
+
+    /* Sightings cards */
+    .sighting-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) { .sighting-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .sighting-grid { grid-template-columns: repeat(4, 1fr); } }
+    .sighting-card {
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 24px rgba(44,33,24,0.06);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .sighting-card:hover {
+      box-shadow: 0 8px 40px rgba(44,33,24,0.1);
+      transform: translateY(-2px);
+    }
+    .sighting-thumb {
+      aspect-ratio: 4 / 3;
+      background: #EFEADF;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .sighting-thumb.skeleton::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, #EFEADF 0%, #F5F0E4 50%, #EFEADF 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .sighting-meta {
+      padding: 1rem 1.1rem 1.2rem;
+    }
+    .sighting-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: #2C2118;
+      margin-bottom: 0.25rem;
+    }
+    .sighting-place {
+      font-size: 0.85rem;
+      color: #6B5F50;
+      margin-bottom: 0.5rem;
+    }
+    .sighting-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #A59A88;
+    }
+    .sighting-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6B8F71;
+      margin-bottom: 0.5rem;
+    }
+    .sighting-status::before {
+      content: '';
+      display: inline-block;
+      width: 0.45rem; height: 0.45rem;
+      border-radius: 9999px;
+      background: #6B8F71;
+      box-shadow: 0 0 0 4px rgba(107,143,113,0.18);
+    }
+
+    /* Inline researcher panel */
+    .panel-amber {
+      background: linear-gradient(135deg, #F5E9D4 0%, #EADBB8 100%);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+    @media (min-width: 768px) { .panel-amber { padding: 3.5rem; } }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 9999px;
+      background: #2C2118;
+      color: #fff;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .pill-link:hover { background: #3D2E22; }
+    .pill-link.amber { background: #C8842F; }
+    .pill-link.amber:hover { background: #E9B775; }
+
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -162,6 +363,8 @@
       .hero-reveal { animation: none !important; opacity: 1; transform: none; }
       .hero-img { transition: none; }
       .img-zoom img { transition: none; }
+      .card-soft, .sighting-card { transition: none; }
+      .sighting-thumb.skeleton::before { animation: none; }
       html { scroll-behavior: auto; }
       .animate-bounce { animation: none; }
     }
@@ -184,18 +387,26 @@
     </div>
     <div class="relative z-10 w-full max-w-6xl mx-auto px-6 pb-20 md:pb-28 lg:pb-32">
       <div class="max-w-2xl">
-        <p class="text-amber-light font-semibold tracking-[0.2em] uppercase text-sm mb-4 hero-reveal text-shadow">A better future for stray dogs</p>
+        <p class="text-amber-light font-semibold tracking-[0.2em] uppercase text-sm mb-4 hero-reveal text-shadow">Citizen science for street dogs</p>
         <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] mb-6 hero-reveal text-shadow" style="animation-delay:0.1s">
           The Street<br>Dog App
         </h1>
         <p class="text-white/70 text-lg md:text-xl max-w-md mb-10 hero-reveal text-shadow" style="animation-delay:0.2s">
-          Track, protect, and raise awareness for street dogs around the world.
+          A research platform powered by everyday sightings. Help map the world's free-roaming dogs and improve their welfare through ongoing monitoring.
         </p>
-        <a href="#newsletter"
-           class="inline-block bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 hero-reveal"
-           style="animation-delay:0.3s">
-          Sign up for newsletter
-        </a>
+        <div class="flex flex-col sm:flex-row gap-4 hero-reveal" style="animation-delay:0.3s">
+          <a href="https://woof.thestreetdogapp.com" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2 bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300">
+            Launch the app
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+          <a href="#newsletter"
+             class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-medium px-8 py-4 rounded-full transition-colors duration-300 border-2 border-white/20">
+            Get research updates
+          </a>
+        </div>
       </div>
     </div>
     <!-- Scroll indicator -->
@@ -206,8 +417,30 @@
     </div>
   </section>
 
-  <!-- ============ RAISE AWARENESS ============ -->
-  <section aria-label="Raise Awareness" class="grid md:grid-cols-2 min-h-[70vh]">
+  <!-- ============ STATS STRIP ============ -->
+  <section aria-label="Programme statistics" class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num" data-stat="dogs">2,840</div>
+        <div class="stat-label">Dogs registered</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num" data-stat="sightings">11,500</div>
+        <div class="stat-label">Sightings logged</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num" data-stat="contributors">320</div>
+        <div class="stat-label">Contributors</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num" data-stat="countries">14</div>
+        <div class="stat-label">Countries</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section aria-label="The gap we're closing" class="grid md:grid-cols-2 min-h-[70vh]">
     <div class="overflow-hidden img-zoom">
       <picture>
         <source srcset="img/pexels-blue-bird-7210698.webp" type="image/webp">
@@ -217,30 +450,101 @@
     </div>
     <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0">
       <div class="max-w-lg reveal">
-        <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Our Mission</span>
-        <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Raise Awareness</h2>
+        <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">The gap</span>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Nobody knows how many street dogs there are.</h2>
+        <p class="text-stone text-lg leading-relaxed mb-4">
+          Free-roaming dogs are one of the most populous mammals on earth. Yet most countries have no reliable dataset on where they live, how they move, or what condition they're in.
+        </p>
         <p class="text-stone text-lg leading-relaxed">
-          We provide a platform for dog-lovers, activists and organizations to share new initiatives
-          and success stories — ensuring productive partnerships and collaborations for the dogs
-          that need it most.
+          Welfare programmes, from sterilisation to international adoption, often run on guesswork. This is the gap we're closing.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ============ CROWD SOURCED DATA ============ -->
-  <section aria-label="Crowdsourced Research" class="grid md:grid-cols-2 min-h-[70vh] bg-sand">
+  <!-- ============ HOW IT WORKS ============ -->
+  <section aria-label="How it works" class="bg-sand py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">How it works</span>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3">Three steps from sighting to science.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 reveal-children">
+        <div class="card-soft">
+          <span class="step-num">1</span>
+          <h3>Spot a dog</h3>
+          <p>Open the app, take a photo. Location, time, and ear-tag detection are handled for you.</p>
+        </div>
+        <div class="card-soft">
+          <span class="step-num">2</span>
+          <h3>Log the encounter</h3>
+          <p>Note body condition, behaviour, group size. Re-spot the same dog later to build a life history.</p>
+        </div>
+        <div class="card-soft">
+          <span class="step-num">3</span>
+          <h3>Feed the dataset</h3>
+          <p>Every sighting joins an open record that researchers, vets, and shelters can act on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE'RE STUDYING ============ -->
+  <section aria-label="Research questions" class="py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Research questions</span>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3">What we're trying to find out.</h2>
+        <p class="text-stone text-lg leading-relaxed mt-6 max-w-2xl mx-auto">
+          The platform is built around questions that have been hard to answer at scale. Every logged sighting nudges one of them forward.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 reveal-children">
+        <div class="card-soft">
+          <span class="card-bullet">Territory &amp; movement</span>
+          <h3>How far does an individual dog actually range?</h3>
+          <p>Repeated sightings of the same tagged dog reveal real home ranges, far better than one-off surveys.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet sage">Group dynamics</span>
+          <h3>Which dogs travel together, and for how long?</h3>
+          <p>Co-occurrence patterns across thousands of photos let us infer pack structure and turnover.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet">Body condition</span>
+          <h3>How does health track with seasons and food sources?</h3>
+          <p>Standardised condition scoring builds a seasonal health curve for each city we cover.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet sage">TNR response</span>
+          <h3>What happens to a population after a sterilisation programme?</h3>
+          <p>Long-term sighting trends quantify whether interventions actually change the picture on the ground.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet">Longitudinal welfare</span>
+          <h3>How does one dog's life change over months and years?</h3>
+          <p>Per-dog timelines combine sightings, vet notes, and adoption events into a real biography.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet sage">Human-dog interaction</span>
+          <h3>Where are conflict zones, and where are safe zones?</h3>
+          <p>Mapping reported incidents alongside sightings helps cities place resources where they matter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ONGOING MONITORING ============ -->
+  <section aria-label="Ongoing monitoring" class="grid md:grid-cols-2 min-h-[70vh] bg-sand">
     <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0 order-2 md:order-1">
       <div class="max-w-lg reveal">
-        <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">The Data</span>
-        <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Crowdsourced Research</h2>
+        <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">Built for the long view</span>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Ongoing monitoring, not snapshots.</h2>
         <p class="text-stone text-lg leading-relaxed mb-4">
-          The crowdsourced data collected through this app is part of research to gain insight
-          into the secret lives of street dogs.
+          Each dog gets a persistent profile. The app's OCR reads ear tags to re-identify individuals across sightings, so health, body condition, and movement build into a real life history.
         </p>
         <p class="text-stone text-lg leading-relaxed">
-          In later stages, this information will be used to develop strategies that improve
-          their welfare and enable international adoption.
+          The longer the platform runs, the sharper the dataset becomes. Every new entry helps the older ones make sense.
         </p>
       </div>
     </div>
@@ -253,11 +557,70 @@
     </div>
   </section>
 
-  <!-- ============ DOG TESTIMONIALS ============ -->
-  <section aria-label="Dog Testimonials" class="py-24 md:py-32 px-6">
+  <!-- ============ FROM DATA TO WELFARE ============ -->
+  <section aria-label="From data to welfare" class="py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Testimonials</span>
+        <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">The loop</span>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3">Data that turns into care.</h2>
+        <p class="text-stone text-lg leading-relaxed mt-6 max-w-2xl mx-auto">
+          A dataset is only as useful as what gets done with it. Three feedback loops sit at the heart of the platform.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 reveal-children">
+        <div class="card-soft">
+          <span class="card-bullet">TNR coordination</span>
+          <h3>Programmes hit the streets that need them.</h3>
+          <p>Hot-spot maps from real sightings show shelters and city teams where sterilisation campaigns will have the most impact.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet">Vet alerts</span>
+          <h3>Injured dogs reach rescuers fast.</h3>
+          <p>Sightings flagged with visible injuries or illness route to local rescue networks in near real time.</p>
+        </div>
+        <div class="card-soft">
+          <span class="card-bullet">Adoption pipelines</span>
+          <h3>Documented dogs find homes.</h3>
+          <p>A documented life history makes international adoption dramatically easier, both for paperwork and for trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECENT SIGHTINGS FEED ============ -->
+  <section id="recent-sightings" aria-label="Recent sightings" class="bg-cream py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <span class="text-sage font-medium tracking-[0.15em] uppercase text-xs">Live from the field</span>
+        <h2 class="font-serif text-4xl md:text-5xl mt-3">Recent sightings.</h2>
+        <p class="text-stone text-lg leading-relaxed mt-6 max-w-2xl mx-auto">
+          The latest entries logged by contributors around the world. Updated as they come in.
+        </p>
+      </div>
+      <div id="sightings-feed" class="sighting-grid reveal" aria-live="polite">
+        <!-- Skeleton placeholders, replaced by JS -->
+        <div class="sighting-card"><div class="sighting-thumb skeleton"></div><div class="sighting-meta"><div class="sighting-status">Loading</div><div class="sighting-name">&nbsp;</div><div class="sighting-place">&nbsp;</div></div></div>
+        <div class="sighting-card"><div class="sighting-thumb skeleton"></div><div class="sighting-meta"><div class="sighting-status">Loading</div><div class="sighting-name">&nbsp;</div><div class="sighting-place">&nbsp;</div></div></div>
+        <div class="sighting-card"><div class="sighting-thumb skeleton"></div><div class="sighting-meta"><div class="sighting-status">Loading</div><div class="sighting-name">&nbsp;</div><div class="sighting-place">&nbsp;</div></div></div>
+        <div class="sighting-card"><div class="sighting-thumb skeleton"></div><div class="sighting-meta"><div class="sighting-status">Loading</div><div class="sighting-name">&nbsp;</div><div class="sighting-place">&nbsp;</div></div></div>
+      </div>
+      <div class="text-center mt-12 reveal">
+        <a href="https://woof.thestreetdogapp.com" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 text-bark font-medium hover:text-amber transition-colors">
+          Open the live map
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOG TESTIMONIALS (kept) ============ -->
+  <section aria-label="Dog voices" class="py-24 md:py-32 px-6 bg-sand">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Voices from the streets</span>
         <h2 class="font-serif text-4xl md:text-5xl mt-3">What the dogs say</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-8 reveal-children">
@@ -275,7 +638,7 @@
             <div class="flex items-center gap-2 text-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
               <span class="font-medium">Frank</span>
-              <span class="text-stone/60">— The Dog Park</span>
+              <span class="text-stone/60">The Dog Park</span>
             </div>
           </div>
         </div>
@@ -293,7 +656,7 @@
             <div class="flex items-center gap-2 text-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
               <span class="font-medium">Bubu</span>
-              <span class="text-stone/60">— The Street</span>
+              <span class="text-stone/60">The Street</span>
             </div>
           </div>
         </div>
@@ -311,7 +674,7 @@
             <div class="flex items-center gap-2 text-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-amber"></span>
               <span class="font-medium">Kupata</span>
-              <span class="text-stone/60">— The Dog Shelter</span>
+              <span class="text-stone/60">The Dog Shelter</span>
             </div>
           </div>
         </div>
@@ -319,23 +682,68 @@
     </div>
   </section>
 
-  <!-- ============ COMING SOON / APP ============ -->
-  <section aria-label="The App — Coming Soon" class="bg-bark text-white relative overflow-hidden grain">
+  <!-- ============ USE THE APP ============ -->
+  <section aria-label="Use the App" class="bg-bark text-white relative overflow-hidden grain">
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
       <div class="relative grid md:grid-cols-2 gap-12 items-center">
         <div class="reveal">
-          <span class="text-amber-light font-medium tracking-[0.15em] uppercase text-xs">The App</span>
-          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mt-3 mb-6 leading-tight">Coming Soon</h2>
+          <span class="text-amber-light font-medium tracking-[0.15em] uppercase text-xs">The app</span>
+          <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl mt-3 mb-6 leading-tight">Become a citizen scientist.</h2>
           <p class="text-white/60 text-lg leading-relaxed mb-8">
-            An interactive street dog application. Track street dogs, become a volunteer.
-            Raise awareness, collect data, get dog-related information.
+            Spot a dog, snap a photo, log a sighting. Each entry helps map a global dataset on free-roaming dogs. No download required, the app launches straight in your browser.
           </p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <a href="https://woof.thestreetdogapp.com" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-amber hover:bg-amber-light text-white font-medium px-8 py-4 rounded-full transition-colors duration-300">
+              Launch the app
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <div class="flex items-center gap-4">
+              <div class="bg-white p-2 rounded-lg shadow-lg">
+                <img src="img/qr-pwa.svg" alt="QR code that opens woof.thestreetdogapp.com on your phone"
+                     class="w-24 h-24 block" width="96" height="96" loading="lazy">
+              </div>
+              <div class="text-white/60 text-sm leading-snug max-w-[10rem]">
+                Scan with your phone to open the app
+              </div>
+            </div>
+          </div>
         </div>
         <div class="reveal md:absolute md:right-0 flex justify-center md:justify-end" style="transition-delay:0.15s">
           <picture>
             <source srcset="img/phone-app.webp" type="image/webp">
             <img src="img/phone-app.png" alt="The Street Dog App showing a list of tracked dogs on a phone screen" class="max-w-xs md:max-w-sm lg:max-w-md drop-shadow-2xl" loading="lazy" width="480" height="720">
           </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR RESEARCHERS / NGOs ============ -->
+  <section aria-label="For researchers and NGOs" class="py-24 md:py-32 px-6 bg-cream">
+    <div class="max-w-6xl mx-auto">
+      <div class="panel-amber reveal">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">For researchers &amp; NGOs</span>
+            <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Working on dog welfare? Let's collaborate.</h2>
+            <p class="text-stone text-lg leading-relaxed">
+              We share aggregated data with research groups, shelters, and TNR programmes. Reach out about data partnerships, custom dashboards, or setting up a local chapter.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3 md:items-end">
+            <a href="mailto:hello@developers-alliance.com?subject=Research%20partnership%20enquiry" class="pill-link amber">
+              Email the team
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            <a href="https://woof.thestreetdogapp.com" target="_blank" rel="noopener" class="pill-link">
+              Browse the app
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -352,15 +760,14 @@
           </picture>
         </div>
         <div class="reveal" style="transition-delay:0.1s">
-          <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Free Download</span>
-          <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Grab a Sticker</h2>
+          <span class="text-amber font-medium tracking-[0.15em] uppercase text-xs">Free download</span>
+          <h2 class="font-serif text-4xl md:text-5xl mt-3 mb-6 leading-tight">Grab a sticker</h2>
           <p class="text-stone text-lg leading-relaxed mb-8">
-            Show your support. Download our free "All You Need Is Dog" sticker
-            and spread the word.
+            Show your support. Download our free "All You Need Is Dog" sticker and spread the word.
           </p>
           <a href="img/sticker-full.png" download
              class="inline-block bg-bark hover:bg-bark/80 text-white font-medium px-8 py-4 rounded-full transition-colors duration-300">
-            Download Sticker
+            Download sticker
           </a>
         </div>
       </div>
@@ -371,9 +778,9 @@
   <section id="newsletter" aria-label="Newsletter Signup" class="bg-sage relative grain">
     <div class="max-w-3xl mx-auto px-6 py-24 md:py-32 text-center">
       <div class="reveal">
-        <span class="text-white/60 font-medium tracking-[0.15em] uppercase text-xs">Stay Connected</span>
-        <h2 class="font-serif text-4xl md:text-5xl text-white mt-3 mb-4">Get the Latest</h2>
-        <p class="text-white/60 text-lg mb-10 max-w-md mx-auto">Sign up and we'll keep you posted on progress, launches, and dog stories.</p>
+        <span class="text-white/60 font-medium tracking-[0.15em] uppercase text-xs">Stay connected</span>
+        <h2 class="font-serif text-4xl md:text-5xl text-white mt-3 mb-4">Get research updates</h2>
+        <p class="text-white/60 text-lg mb-10 max-w-md mx-auto">Quarterly progress, new datasets, and dog stories. No spam.</p>
       </div>
       <div class="reveal" style="transition-delay:0.1s">
         <div id="sub-msg" class="hidden max-w-md mx-auto mb-6 px-6 py-4 rounded-full text-base font-medium"></div>
@@ -383,7 +790,7 @@
                  class="w-full px-6 py-4 rounded-full bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-base outline-none focus:border-white/50 transition-colors">
           <button type="submit"
                   class="w-full mt-3 px-6 py-4 rounded-full bg-amber hover:bg-amber-light text-white font-medium text-base transition-colors duration-300">
-            Keep Me Informed
+            Keep me informed
           </button>
         </form>
       </div>
@@ -459,6 +866,108 @@
         }
       }, { passive: true });
     }
+
+    // Stat counters: animate from 0 to target on first scroll into view
+    (function() {
+      const cells = document.querySelectorAll('.stat-num');
+      if (!cells.length) return;
+      const formatNum = (n) => n.toLocaleString('en-US');
+      const animate = (el) => {
+        const target = parseInt((el.textContent || '0').replace(/,/g, ''), 10) || 0;
+        if (!isFinite(target) || target === 0) return;
+        const dur = 1200;
+        const start = performance.now();
+        const tick = (now) => {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = formatNum(Math.round(target * eased));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        el.textContent = '0';
+        requestAnimationFrame(tick);
+      };
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            animate(e.target);
+            statObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      cells.forEach(c => statObserver.observe(c));
+    })();
+
+    // Recent sightings feed
+    (function() {
+      const feed = document.getElementById('sightings-feed');
+      if (!feed) return;
+
+      const timeAgo = (iso) => {
+        const ms = Date.now() - new Date(iso).getTime();
+        const m = Math.floor(ms / 60000);
+        if (m < 1) return 'just now';
+        if (m < 60) return m + 'm ago';
+        const h = Math.floor(m / 60);
+        if (h < 24) return h + 'h ago';
+        const d = Math.floor(h / 24);
+        return d + 'd ago';
+      };
+
+      const shortId = (id) => {
+        if (!id) return '----';
+        const s = String(id).replace(/-/g, '');
+        return s.slice(-4).toUpperCase();
+      };
+
+      const formatCoord = (lat, lng) => {
+        if (typeof lat !== 'number' || typeof lng !== 'number') return null;
+        const ns = lat >= 0 ? 'N' : 'S';
+        const ew = lng >= 0 ? 'E' : 'W';
+        return `Near ${Math.abs(lat).toFixed(1)}° ${ns}, ${Math.abs(lng).toFixed(1)}° ${ew}`;
+      };
+
+      const render = (items) => {
+        if (!items || !items.length) {
+          feed.innerHTML = '<div class="sighting-card" style="grid-column:1/-1;text-align:center;padding:2rem"><div class="sighting-meta"><div class="sighting-name">No sightings yet</div><div class="sighting-place">Be the first to log one.</div></div></div>';
+          return;
+        }
+        feed.innerHTML = items.slice(0, 4).map(it => {
+          const thumb = it.image_url
+            ? `<div class="sighting-thumb" style="background-image:url('${it.image_url}')"></div>`
+            : `<div class="sighting-thumb skeleton"></div>`;
+          const name = it.dog_name || ('Unnamed #' + shortId(it.dog_id));
+          const place =
+            [it.city, it.country].filter(Boolean).join(', ') ||
+            formatCoord(it.latitude, it.longitude) ||
+            'Location withheld';
+          const status = it.condition ? it.condition : 'Logged';
+          return `
+            <article class="sighting-card">
+              ${thumb}
+              <div class="sighting-meta">
+                <div class="sighting-status">${escapeHtml(status)}</div>
+                <div class="sighting-name">${escapeHtml(name)}</div>
+                <div class="sighting-place">${escapeHtml(place)}</div>
+                <div class="sighting-foot">
+                  <span>${escapeHtml(timeAgo(it.sighted_at))}</span>
+                  <span>${escapeHtml(it.contributor || 'volunteer')}</span>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+      };
+
+      const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+      fetch('/api/recent-sightings.php', { credentials: 'same-origin' })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(data => render(Array.isArray(data) ? data : data.items))
+        .catch(() => {
+          // Graceful fallback if proxy unreachable: show a tasteful empty state.
+          feed.innerHTML = '<div class="sighting-card" style="grid-column:1/-1;text-align:center;padding:2rem"><div class="sighting-meta"><div class="sighting-name">Live feed warming up</div><div class="sighting-place">Open the app to see real-time sightings.</div></div></div>';
+        });
+    })();
   </script>
 </body>
 </html>
